@@ -1,0 +1,310 @@
+/* ===== Feedback report ===== */
+.feedback-view {
+  padding: 36px 24px 60px;
+  flex: 1;
+}
+
+.feedback-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.score-hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--white) 60%, var(--red-tint) 100%);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.score-ring {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+}
+
+.score-ring svg { transform: rotate(-90deg); }
+
+.score-ring .track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 8;
+}
+
+.score-ring .fill {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s var(--ease);
+}
+
+.score-ring .score-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-ring .score-num strong {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.score-ring .score-num span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.score-hero-text h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.score-hero-text p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  max-width: 42ch;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 560px) {
+  .metric-grid { grid-template-columns: 1fr; }
+  .score-hero { flex-direction: column; text-align: center; }
+}
+
+.metric-card {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+}
+
+.metric-card .metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.metric-card .metric-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.metric-card .metric-val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--red-deep);
+  font-weight: 700;
+}
+
+.meter {
+  height: 6px;
+  background: var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--red-soft), var(--red));
+  border-radius: 4px;
+  transition: width 1s var(--ease);
+}
+
+.report-section {
+  margin-bottom: 24px;
+}
+
+.report-section h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-section h3::before {
+  content: '';
+  width: 14px;
+  height: 2px;
+  background: var(--red);
+}
+
+.tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tag-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+}
+
+.tag-item.strength { border-left: 3px solid var(--red); }
+.tag-item.weakness { border-left: 3px solid var(--muted); }
+.tag-item.tip { border-left: 3px solid var(--ink); }
+
+.tag-item .idx {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--red-deep);
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.feedback-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.transcript-toggle {
+  margin-top: 28px;
+}
+
+.transcript-toggle summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 10px 0;
+  list-style: none;
+}
+
+.transcript-toggle summary::-webkit-details-marker { display: none; }
+
+.transcript-toggle summary::before {
+  content: '▸ ';
+  color: var(--red);
+}
+
+.transcript-toggle[open] summary::before {
+  content: '▾ ';
+}
+
+.transcript-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 0 4px;
+}
+
+/* ===== History ===== */
+.history-view {
+  padding: 32px 24px 60px;
+  flex: 1;
+}
+
+.history-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+  background: var(--white);
+  transition: all 0.15s var(--ease);
+  text-align: left;
+  width: 100%;
+}
+
+.history-item:hover {
+  border-color: var(--red);
+  box-shadow: var(--shadow-sm);
+}
+
+.history-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.history-item-role {
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.history-item-date {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.history-score {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--red-deep);
+  background: var(--red-tint);
+  padding: 8px 14px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+
+.empty-state .icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}

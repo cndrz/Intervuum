@@ -1,0 +1,234 @@
+/* ===== Cards & forms ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  animation: rise 0.5s var(--ease);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--red);
+}
+
+.card h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.card .lede {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 28px;
+  max-width: 46ch;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 7px;
+  letter-spacing: 0.01em;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--red);
+  background: var(--white);
+  outline: none;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  border: 1.5px solid var(--line-strong);
+  background: var(--white);
+  color: var(--ink-soft);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.15s var(--ease);
+}
+
+.pill:hover {
+  border-color: var(--red);
+  color: var(--red-deep);
+}
+
+.pill.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.pill.active.red {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 560px) {
+  .role-grid { grid-template-columns: 1fr; }
+}
+
+.role-card {
+  text-align: left;
+  border: 1.5px solid var(--line-strong);
+  background: var(--white);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  transition: all 0.15s var(--ease);
+}
+
+.role-card:hover {
+  border-color: var(--red);
+  background: var(--red-tint);
+}
+
+.role-card.active {
+  border-color: var(--red);
+  background: var(--red-tint);
+  box-shadow: inset 0 0 0 1px var(--red);
+}
+
+.role-card .role-title {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.role-card .role-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 26px;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: all 0.15s var(--ease);
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: var(--shadow-red);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--red-deep);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: var(--line-strong);
+  color: var(--muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line-strong);
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.gender-note {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.stepper {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.stepper .seg {
+  height: 3px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.stepper .seg.done {
+  background: var(--red);
+}
