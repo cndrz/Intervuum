@@ -44,44 +44,6 @@ intervuum/
 └── vite.config.js
 ```
 
-## Setup
-
-```bash
-npm install
-```
-
-Copy the env example and add your Groq key:
-
-```bash
-cp .env.example .env
-```
-
-Get a key at https://console.groq.com/keys, then:
-
-- **For Vercel deployment / `vercel dev`**: set `GROQ_API_KEY` in your Vercel project's environment variables.
-- **For plain `vite dev` (local only)**: set `VITE_GROQ_API_KEY_DEV_ONLY` in `.env` — this ships the key to the browser, so never use it in production.
-
-## Running locally
-
-The chat calls `/api/groq`, a Vercel serverless function, so the key never
-reaches the browser. Locally that means using the Vercel CLI:
-
-```bash
-npm i -g vercel   # once
-vercel dev
-```
-
-If you just want to run `vite dev` without the Vercel CLI, you can bypass the
-proxy for local testing only by setting `VITE_GROQ_API_KEY_DEV_ONLY` in a
-local `.env` — this calls Groq directly from the browser and must **never**
-be set in a deployed build, since it would ship your key to every visitor.
-
-## Deploying to Vercel
-
-1. Push this repo to GitHub and import it in Vercel, or run `vercel` from this folder.
-2. In the Vercel project's Environment Variables, set `GROQ_API_KEY` (no `VITE_` prefix — it should stay server-only).
-3. Deploy. `vercel.json` is already set up to serve the static build from `dist/` and route `/api/*` to the serverless function.
-
 ## Notes
 
 - All personal data (profile, interview history) lives only in the browser's `localStorage` — nothing is sent anywhere except the transcript sent to Groq for generating questions/feedback.
